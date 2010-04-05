@@ -33,7 +33,7 @@ package flashx.funk {
       return ""
     }
 
-    public function equals(that: IFunkObject): Boolean {
+    public function equals(that: *): Boolean {
       if (that is IProduct) {
         const thatProduct: IProduct = IProduct(that)
 

@@ -20,7 +20,7 @@
 
 package flashx.funk {
   public interface IFunkObject {
-    function equals(that: IFunkObject): Boolean
+    function equals(that: *): Boolean
 
     function toString(): String
   }

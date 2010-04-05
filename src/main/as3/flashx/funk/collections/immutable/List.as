@@ -86,7 +86,7 @@ package flashx.funk.collections.immutable {
     /**
      * @inheritDoc
      */
-    override public function equals(that:IFunkObject): Boolean {
+    override public function equals(that: *): Boolean {
       if (that is IList) {
         return super.equals(that)
       }

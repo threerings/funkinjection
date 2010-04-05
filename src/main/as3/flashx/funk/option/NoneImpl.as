@@ -42,7 +42,7 @@ package flashx.funk.option {
       return true
     }
 
-    override public function equals(that: IFunkObject): Boolean {
+    override public function equals(that: *): Boolean {
       if (that is IOption) {
         return !IOption(that).isDefined
       }
