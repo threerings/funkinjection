@@ -292,8 +292,9 @@ package flashx.funk.collections.immutable {
     }
 
     public function testTake(): void {
-      assertStrictlyEquals(nil, nil.take(0))
-      assertThrows(closure(nil.take, -1), ArgumentError)
+      assertThrows(closure(list(1).take, -1), ArgumentError)
+			assertTrue(list(true).take(1).head)
+			assertTrue(list(true,false).equals(list(true,false,false,false).take(2)))
     }
 
     public function takeRight(): void {

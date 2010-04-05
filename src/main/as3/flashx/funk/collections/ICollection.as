@@ -23,7 +23,7 @@ package flashx.funk.collections {
     /**
      * The length of the collection.
      */
-    [Deprecated(replacement="size", since="0.1")]
+    [Deprecated(replacement="size", since="1.0")]
     function get length(): int
 
     /**

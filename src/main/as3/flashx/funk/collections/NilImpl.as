@@ -380,7 +380,7 @@ package flashx.funk.collections {
     /**
      * @inheritDoc
      */
-    [Deprecated(replacement="size", since="0.1")]
+    [Deprecated(replacement="size", since="1.0")]
     public function get length(): int {
       return 0
     }

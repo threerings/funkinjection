@@ -36,20 +36,20 @@ package flashx.funk.collections.immutable {
   import flashx.funk.util.verifiedType;
 
   public final class List extends Product implements IImmutable, IList {
-    private var _value: *
-    private var _next: IList
+    private var _head: *
+    private var _tail: IList
     private var _length: int = 0
     private var _lengthKnown: Boolean = false
 
-    public function List(value: *, next: IList) {
-      _value = value
-      _next = next
+    public function List(head: *, tail: IList) {
+      _head = head
+      _tail = tail
     }
 
     /**
      * @inheritDoc
      */
-    [Deprecated(replacement="size", since="0.1")]
+    [Deprecated(replacement="size", since="1.0")]
     public function get length(): int {
       return _lengthKnown ? _length : size
     }
@@ -63,7 +63,7 @@ package flashx.funk.collections.immutable {
       }
 
       var p: IList = this
-      var length: int = 0;
+      var length: int = 0
 
       while(p.notEmpty) {
         ++length;
@@ -157,10 +157,10 @@ package flashx.funk.collections.immutable {
         p = p.tail
       }
 
-      buffer[m]._next = this
+      buffer[m]._tail = this
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
@@ -259,10 +259,10 @@ package flashx.funk.collections.immutable {
         p = p.tail
       }
 
-      buffer[m]._next = nil
+      buffer[m]._tail = nil
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
@@ -317,7 +317,7 @@ package flashx.funk.collections.immutable {
           q = new List(p.head, nil)
 
           if(null != last) {
-            last._next = q
+            last._tail = q
           }
 
           if(null == first) {
@@ -354,7 +354,7 @@ package flashx.funk.collections.immutable {
           q = new List(p.head, nil)
 
           if(null != last) {
-            last._next = q
+            last._tail = q
           }
 
           if(null == first) {
@@ -479,14 +479,14 @@ package flashx.funk.collections.immutable {
      * @inheritDoc
      */
     public function get head(): * {
-      return _value
+      return _head
     }
 
     /**
      * @inheritDoc
      */
     public function get headOption(): IOption {
-      return some(_value)
+      return some(_head)
     }
 
     /**
@@ -547,10 +547,10 @@ package flashx.funk.collections.immutable {
         p = p.tail
       }
 
-      buffer[m]._next = nil
+      buffer[m]._tail = nil
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
@@ -585,13 +585,13 @@ package flashx.funk.collections.immutable {
 
       if(m > 0) {
         for(i = 0, j = 1; i < m; ++i, ++j) {
-          left[i]._next = left[j]
+          left[i]._tail = left[j]
         }
       }
 
       if(o > 0) {
         for(i = 0, j = 1; i < o; ++i, ++j) {
-          right[i]._next = right[j]
+          right[i]._tail = right[j]
         }
       }
 
@@ -603,7 +603,7 @@ package flashx.funk.collections.immutable {
      */
     public function reduceLeft(f: Function): * {
       var value: * = head
-      var p: IList = this._next
+      var p: IList = this._tail
 
       while(p.notEmpty) {
         value = f(value, p.head)
@@ -647,14 +647,14 @@ package flashx.funk.collections.immutable {
      * @inheritDoc
      */
     public function get tail(): IList {
-      return _next
+      return _tail
     }
 
     /**
      * @inheritDoc
      */
     public function get tailOption(): IOption {
-      return some(_next)
+      return some(_tail)
     }
 
     /**
@@ -679,10 +679,10 @@ package flashx.funk.collections.immutable {
         p = p.tail
       }
 
-      buffer[m]._next = nil
+      buffer[m]._tail = nil
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
@@ -735,10 +735,10 @@ package flashx.funk.collections.immutable {
 
       var m: int = n - 1
 
-      buffer[m]._next = nil
+      buffer[m]._tail = nil
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
@@ -788,10 +788,10 @@ package flashx.funk.collections.immutable {
         q = q.tail
       }
 
-      buffer[m]._next = nil
+      buffer[m]._tail = nil
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
@@ -813,10 +813,10 @@ package flashx.funk.collections.immutable {
         p = p.tail
       }
 
-      buffer[m]._next = nil
+      buffer[m]._tail = nil
 
       for(i = 0, j = 1; i < m; ++i, ++j) {
-        buffer[i]._next = buffer[j]
+        buffer[i]._tail = buffer[j]
       }
 
       return buffer[0]
