@@ -56,8 +56,17 @@
     </wildcardResourcePatterns>
     <annotationProcessing enabled="false" useClasspath="true" />
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright />
+  <component name="CopyrightManager" default="funk-as3">
+    <copyright>
+      <option name="notice" value="This file is part of funk-as3.&#10;&#10;funk-as3 is free software: you can redistribute it and/or modify&#10;it under the terms of the GNU Lesser General Public License as published by&#10;the Free Software Foundation, either version 3 of the License, or&#10;(at your option) any later version.&#10;&#10;funk-as3 is distributed in the hope that it will be useful,&#10;but WITHOUT ANY WARRANTY; without even the implied warranty of&#10;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#10;GNU Lesser General Public License for more details.&#10;&#10;You should have received a copy of the GNU Lesser General Public License&#10;along with Apparat. If not, see &lt;http://www.gnu.org/licenses/&gt;.&#10;&#10;Copyright (C) &amp;#36;today.year Joa Ebert&#10;http://www.joa-ebert.com/" />
+      <option name="keyword" value="Copyright" />
+      <option name="allowReplaceKeyword" value="" />
+      <option name="myName" value="funk-as3" />
+      <option name="myLocal" value="true" />
+    </copyright>
+    <module2copyright>
+      <element module="All" copyright="funk-as3" />
+    </module2copyright>
   </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
