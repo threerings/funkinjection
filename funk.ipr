@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AntConfiguration">
+    <defaultAnt bundledAnt="true" />
+  </component>
+  <component name="CodeStyleSettingsManager">
+    <option name="PER_PROJECT_SETTINGS">
+      <value>
+        <ADDITIONAL_INDENT_OPTIONS fileType="java">
+          <option name="INDENT_SIZE" value="4" />
+          <option name="CONTINUATION_INDENT_SIZE" value="8" />
+          <option name="TAB_SIZE" value="4" />
+          <option name="USE_TAB_CHARACTER" value="false" />
+          <option name="SMART_TABS" value="false" />
+          <option name="LABEL_INDENT_SIZE" value="0" />
+          <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+        </ADDITIONAL_INDENT_OPTIONS>
+        <ADDITIONAL_INDENT_OPTIONS fileType="jsp">
+          <option name="INDENT_SIZE" value="4" />
+          <option name="CONTINUATION_INDENT_SIZE" value="8" />
+          <option name="TAB_SIZE" value="4" />
+          <option name="USE_TAB_CHARACTER" value="false" />
+          <option name="SMART_TABS" value="false" />
+          <option name="LABEL_INDENT_SIZE" value="0" />
+          <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+        </ADDITIONAL_INDENT_OPTIONS>
+        <ADDITIONAL_INDENT_OPTIONS fileType="xml">
+          <option name="INDENT_SIZE" value="4" />
+          <option name="CONTINUATION_INDENT_SIZE" value="8" />
+          <option name="TAB_SIZE" value="4" />
+          <option name="USE_TAB_CHARACTER" value="false" />
+          <option name="SMART_TABS" value="false" />
+          <option name="LABEL_INDENT_SIZE" value="0" />
+          <option name="LABEL_INDENT_ABSOLUTE" value="false" />
+        </ADDITIONAL_INDENT_OPTIONS>
+      </value>
+    </option>
+  </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions>
+      <entry name=".+\.(properties|xml|html|dtd|tld)" />
+      <entry name=".+\.(gif|png|jpeg|jpg)" />
+    </resourceExtensions>
+    <wildcardResourcePatterns>
+      <entry name="?*.properties" />
+      <entry name="?*.xml" />
+      <entry name="?*.gif" />
+      <entry name="?*.png" />
+      <entry name="?*.jpeg" />
+      <entry name="?*.jpg" />
+      <entry name="?*.html" />
+      <entry name="?*.dtd" />
+      <entry name="?*.tld" />
+      <entry name="?*.ftl" />
+    </wildcardResourcePatterns>
+    <annotationProcessing enabled="false" useClasspath="true" />
+  </component>
+  <component name="CopyrightManager" default="">
+    <module2copyright />
+  </component>
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="FacetAutodetectingManager">
+    <autodetection-disabled>
+      <facet-type id="flex">
+        <modules>
+          <module name="funk" />
+        </modules>
+      </facet-type>
+    </autodetection-disabled>
+  </component>
+  <component name="IdProvider" IDEtalkID="4D8EDC926425F5355803DD2064361232" />
+  <component name="InspectionProjectProfileManager">
+    <profiles>
+      <profile version="1.0" is_locked="false">
+        <option name="myName" value="Project Default" />
+        <option name="myLocal" value="false" />
+        <inspection_tool class="UnterminatedStatementJS" enabled="false" level="WARNING" enabled_by_default="false" />
+      </profile>
+    </profiles>
+    <option name="PROJECT_PROFILE" value="Project Default" />
+    <option name="USE_PROJECT_PROFILE" value="true" />
+    <version value="1.0" />
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" />
+    <option name="OPTION_SCOPE" value="protected" />
+    <option name="OPTION_HIERARCHY" value="true" />
+    <option name="OPTION_NAVIGATOR" value="true" />
+    <option name="OPTION_INDEX" value="true" />
+    <option name="OPTION_SEPARATE_INDEX" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
+    <option name="OPTION_DEPRECATED_LIST" value="true" />
+    <option name="OTHER_OPTIONS" value="" />
+    <option name="HEAP_SIZE" />
+    <option name="LOCALE" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/funk.iml" filepath="$PROJECT_DIR$/funk.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="4.0.0.14159" project-jdk-type="Flex SDK Type">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+  <component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="funk :: Option Type" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" class_name="" html_or_swf_file_path="$PROJECT_DIR$/target/_flexunit.swf" main_class_name="" method_name="" module_name="funk" output_log_level="" package_name="flashx.funk.option" port="7832" run_mode="HtmlOrSwfFile" scope="Package" socket_policy_port="843" url_to_launch="http://">
+      <RunnerSettings RunnerId="FlexRunner" />
+      <ConfigurationWrapper RunnerId="FlexRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="funk :: Collections" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" class_name="" html_or_swf_file_path="$PROJECT_DIR$/target/_flexunit.swf" main_class_name="" method_name="" module_name="funk" output_log_level="" package_name="flashx.funk.collections" port="7832" run_mode="HtmlOrSwfFile" scope="Package" socket_policy_port="843" url_to_launch="http://">
+      <RunnerSettings RunnerId="FlexDebugRunner" />
+      <RunnerSettings RunnerId="FlexRunner" />
+      <ConfigurationWrapper RunnerId="FlexDebugRunner" />
+      <ConfigurationWrapper RunnerId="FlexRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="funk :: All Tests" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" class_name="" html_or_swf_file_path="$PROJECT_DIR$/target/_flexunit.swf" main_class_name="" method_name="" module_name="funk" output_log_level="" package_name="flashx.funk" port="7832" run_mode="HtmlOrSwfFile" scope="Package" socket_policy_port="843" url_to_launch="http://">
+      <RunnerSettings RunnerId="FlexRunner" />
+      <ConfigurationWrapper RunnerId="FlexRunner" />
+      <method />
+    </configuration>
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="" />
+  </component>
+  <component name="WebServicesPlugin" addRequiredLibraries="true" />
+  <component name="libraryTable">
+    <library name="Maven: com.adobe.flex.framework:text-layout:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/text-layout/4.0.0.14159/text-layout-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/text-layout/4.0.0.14159/text-layout-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/text-layout/4.0.0.14159/text-layout-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:osmf:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/osmf/4.0.0.14159/osmf-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/osmf/4.0.0.14159/osmf-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/osmf/4.0.0.14159/osmf-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:framework:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/framework/4.0.0.14159/framework-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/framework/4.0.0.14159/framework-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/framework/4.0.0.14159/framework-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:spark:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/spark/4.0.0.14159/spark-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/spark/4.0.0.14159/spark-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/spark/4.0.0.14159/spark-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:sparkskins:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/sparkskins/4.0.0.14159/sparkskins-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/sparkskins/4.0.0.14159/sparkskins-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/sparkskins/4.0.0.14159/sparkskins-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:rpc:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/rpc/4.0.0.14159/rpc-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/rpc/4.0.0.14159/rpc-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/rpc/4.0.0.14159/rpc-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:datavisualization:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/datavisualization/4.0.0.14159/datavisualization-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/datavisualization/4.0.0.14159/datavisualization-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/datavisualization/4.0.0.14159/datavisualization-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:flash-integration:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flash-integration/4.0.0.14159/flash-integration-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flash-integration/4.0.0.14159/flash-integration-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flash-integration/4.0.0.14159/flash-integration-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:flex:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flex/4.0.0.14159/flex-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flex/4.0.0.14159/flex-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flex/4.0.0.14159/flex-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:utilities:swc:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/utilities/4.0.0.14159/utilities-4.0.0.14159.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/utilities/4.0.0.14159/utilities-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/utilities/4.0.0.14159/utilities-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:datavisualization:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/datavisualization/4.0.0.14159/datavisualization-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/datavisualization/4.0.0.14159/datavisualization-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:flash-integration:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flash-integration/4.0.0.14159/flash-integration-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/flash-integration/4.0.0.14159/flash-integration-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:framework:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/framework/4.0.0.14159/framework-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/framework/4.0.0.14159/framework-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:osmf:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/osmf/4.0.0.14159/osmf-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/osmf/4.0.0.14159/osmf-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:rpc:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/rpc/4.0.0.14159/rpc-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/rpc/4.0.0.14159/rpc-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:spark:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/spark/4.0.0.14159/spark-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/spark/4.0.0.14159/spark-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:text-layout:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/text-layout/4.0.0.14159/text-layout-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/text-layout/4.0.0.14159/text-layout-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:playerglobal:swc:10.0:4.0.0.14159">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/playerglobal/4.0.0.14159/playerglobal-4.0.0.14159-10.0.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/playerglobal/4.0.0.14159/playerglobal-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/playerglobal/4.0.0.14159/playerglobal-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flex.framework:playerglobal:rb.swc:4.0.0.14159">
+      <CLASSES />
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/playerglobal/4.0.0.14159/playerglobal-4.0.0.14159-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flex/framework/playerglobal/4.0.0.14159/playerglobal-4.0.0.14159-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.adobe.flexunit:flexunit:swc:0.85">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flexunit/flexunit/0.85/flexunit-0.85.swc!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flexunit/flexunit/0.85/flexunit-0.85-asdoc.zip!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/adobe/flexunit/flexunit/0.85/flexunit-0.85-sources.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
+</project>
+
