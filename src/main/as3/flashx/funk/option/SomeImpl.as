@@ -48,7 +48,7 @@ package flashx.funk.option {
       return false
     }
 
-    override public function equals(that: *): Boolean {
+    override public function equals(that: IFunkObject): Boolean {
       if(that is IOption) {
         const thatOption: IOption = IOption(that)
 
