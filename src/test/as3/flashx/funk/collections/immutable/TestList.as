@@ -276,7 +276,7 @@ package flashx.funk.collections.immutable {
     }
 
     public function testReverse(): void {
-      assertTrue(list("ogeniederherrehredeinego").equals(toList("ogeniederherrehredeinego").reverse))
+      assertTrue(toList("ogeniederherrehredeinego").equals(toList("ogeniederherrehredeinego").reverse))
       assertTrue(list(5,4,3,2,1).equals(list(1,2,3,4,5).reverse))
     }
 
@@ -288,6 +288,7 @@ package flashx.funk.collections.immutable {
 
     public function testTailOption(): void {
       assertTrue(some(nil), list(1).tail)
+      assertTrue(some(list(2)).equals(list(1, 2).tail))
     }
 
     public function testTake(): void {
