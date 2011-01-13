@@ -21,31 +21,29 @@
 package flashx.funk.ioc {
   import flash.utils.Dictionary
 
-  import flashx.funk.collections.IList
-  import flashx.funk.collections.nil
   import flashx.funk.ioc.error.BindingError
   import flashx.funk.util.isAbstract
 
   public final class Injector {
     private static const _map: Dictionary = new Dictionary
-    private static var _scopes: IList = nil
-    private static var _modules: IList = nil
+    private static var _scopes: Array = []
+    private static var _modules: Array = []
     private static var _currentScope: IModule
 
     public static function initialize(module: IModule): IModule {
       module.initialize()
-      _modules = _modules.prepend(module)
+      _modules.splice(0, 0, module)
       return module
     }
     
     module_internal static function pushScope(module: IModule): void {
       _currentScope = module
-      _scopes = _scopes.prepend(module)
+      _scopes.splice(0, 0, module)
     }
 
     module_internal static function popScope(): void {
-      _scopes = _scopes.tail
-      _currentScope = _scopes.nonEmpty ? IModule(_scopes.head) : null
+      _scopes.shift()
+      _currentScope = _scopes.length == 0 ? IModule(_scopes[0]) : null
     }
 
     module_internal static function get currentScope(): IModule {
@@ -55,19 +53,19 @@ package flashx.funk.ioc {
     module_internal static function scopeOf(klass: Class): IModule {
       var result: IModule = null
       var module: IModule = null
-      var modules: IList = _modules
+      var modules: Array = _modules.concat()
 
-      while(modules.nonEmpty) {
-        module = IModule(modules.head)
+      while(modules.length > 0) {
+        module = IModule(modules[0])
 
         if(module.binds(klass)) {
           if(null != result) {
             throw new BindingError("More than one module binds "+klass+".")
           }
-          result = IModule(modules.head)
+          result = IModule(modules[0])
         }
 
-        modules = modules.tail
+        modules.shift()
       }
 
       if(null == result) {
@@ -85,17 +83,17 @@ package flashx.funk.ioc {
       }
 
       var module: IModule = null
-      var modules: IList = _modules
+      var modules: Array = _modules.concat()
 
-      while(modules.nonEmpty) {
-        module = IModule(modules.head)
+      while(modules.length > 0) {
+        module = IModule(modules[0])
 
         if(module is klass) {
           _map[klass] = module
           return module
         }
 
-        modules = modules.tail
+        modules.shift()
       }
 
       throw new BindingError("No module for "+klass+" could be found.")
