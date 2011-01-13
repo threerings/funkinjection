@@ -19,7 +19,6 @@
  */
 
 package flashx.funk.ioc {
-  import flexunit.framework.Assert
 
   internal final class MockObject {
     private const _byProvider: IMockProviderObject = inject(IMockProviderObject)

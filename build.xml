@@ -1,7 +1,9 @@
 <!-- build configuration -->
 <project name="funkinjection" default="swc" basedir="." xmlns:artifact="urn:maven-artifact-ant">
   <property name="asrc.dir" location="src/main/as3"/>
-  <property name="deploy.dir" location="dist"/>
+  <property name="testasrc.dir" location="src/test/as3"/>
+  <property name="lib" location="dist/funkinjection.swc"/>
+  <property name="testswf" location="dist/test.swf"/>
 
   <!-- bring in our standard build support -->
   <property name="ooo-build.vers" value="1.4"/>
@@ -9,7 +11,11 @@
   <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
 
   <target name="swc" depends="-init-contrib">
-    <compc4 libpath="" dest="${deploy.dir}/funkinjection.swc"
-      srcdir="${asrc.dir}"/>
+    <compc4 libpath="" dest="${lib}" srcdir="${asrc.dir}"/>
+  </target>
+
+  <target name="test" depends="swc">
+    <mxmlc4 libpath="${lib}" dest="${testswf}" srcdir="${testasrc.dir}"
+      main="flashx/funk/ioc/TestIOC.as"/>
   </target>
 </project>

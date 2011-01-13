@@ -21,41 +21,31 @@
 package flashx.funk.ioc {
   import flash.display.Sprite
 
-  import flashx.funk.closure
-  import flashx.funk.ioc.error.BindingError
-  import flashx.funk.test.assertThrows
+import flashx.funk.test.assert;
+import flashx.funk.test.assertEquals;
+import flashx.funk.test.assertNotEquals;
+import flashx.funk.ioc.error.BindingError
 
-  import flexunit.framework.TestCase
-
-  public final class TestIOC extends TestCase {
-    public function testIOC(): void {
-      const module: IModule = Injector.initialize(new MockModule)
+  [SWF(width='50', height='50')]
+  public final class TestIOC extends Sprite{
+    public function TestIOC() {
+      const module: IModule = new MockModule
       const mockObject: MockObject = module.getInstance(MockObject)
 
       assertEquals("Test", mockObject.byInstance)
-      assertTrue(mockObject.byProvider is ProvidedObject)
-      assertTrue(mockObject.byObject is AnotherObject)
+      assert(mockObject.byProvider is ProvidedObject)
+      assert(mockObject.byObject is AnotherObject)
       assertEquals(1, SingletonInstance.numInstances)
 
       const mockObject2: MockObject = module.getInstance(MockObject)
 
       assertEquals("Test", mockObject2.byInstance)
-      assertTrue(mockObject2.byProvider is ProvidedObject)
-      assertTrue(mockObject2.byObject is AnotherObject)
+      assert(mockObject2.byProvider is ProvidedObject)
+      assert(mockObject2.byObject is AnotherObject)
       assertEquals(1, SingletonInstance.numInstances)
       
-      assertFalse(mockObject.byProvider == mockObject2.byProvider)
-      assertFalse(mockObject.byObject == mockObject2.byObject)
-
-      assertThrows(closure(inject, null), ArgumentError)
-      assertThrows(closure(inject, Sprite), BindingError)
-
-      const mockObject3: MockObject = new MockObject()
-
-      assertEquals("Test", mockObject3.byInstance)
-      assertTrue(mockObject3.byProvider is ProvidedObject)
-      assertTrue(mockObject3.byObject is AnotherObject)
-      assertEquals(1, SingletonInstance.numInstances)
+      assertNotEquals(mockObject.byProvider, mockObject2.byProvider)
+      assertNotEquals(mockObject.byObject, mockObject2.byObject)
     }
   }
 }

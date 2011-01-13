@@ -19,13 +19,13 @@
  */
 
 package flashx.funk.ioc {
-  import flexunit.framework.Assert
+  import flashx.funk.test.assert;
 
   internal final class ProvidedObject implements IMockProviderObject {
     private const _injectedSingleton: SingletonInstance = inject(SingletonInstance)
 
     public function ProvidedObject() {
-      Assert.assertNotNull(_injectedSingleton)
+      assert(_injectedSingleton != null)
     }
   }
 }

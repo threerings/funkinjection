@@ -20,7 +20,7 @@
 
 package flashx.funk.ioc {
   internal final class MockModule extends AbstractModule {
-    override final protected function configure(): void {
+    function MockModule() {
       bind(IMockProviderObject).toProvider(IMockProvider)
       bind(IMockProvider).to(MockProvider)
       bind(String).toInstance("Test")
