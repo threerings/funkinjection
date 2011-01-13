@@ -1,0 +1,15 @@
+<!-- build configuration -->
+<project name="funkinversion" default="swc" basedir="." xmlns:artifact="urn:maven-artifact-ant">
+  <property name="asrc.dir" location="src/main/as3"/>
+  <property name="deploy.dir" location="dist"/>
+
+  <!-- bring in our standard build support -->
+  <property name="ooo-build.vers" value="1.4"/>
+  <ant antfile="bootstrap.xml"/>
+  <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
+
+  <target name="swc" depends="-init-contrib">
+    <compc4 libpath="" dest="${deploy.dir}/funkinversion.swc"
+      srcdir="${asrc.dir}"/>
+  </target>
+</project>
