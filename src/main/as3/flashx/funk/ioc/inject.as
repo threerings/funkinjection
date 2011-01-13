@@ -26,10 +26,6 @@ package flashx.funk.ioc {
 
     const currentScope: IModule = Injector.module_internal::currentScope
 
-    if(null == currentScope) {
-      return Injector.module_internal::scopeOf(klass).getInstance(klass)
-    }
-
     return currentScope.getInstance(klass)
   }
 }

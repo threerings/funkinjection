@@ -25,17 +25,9 @@ package flashx.funk.ioc {
   import flashx.funk.util.isAbstract
 
   public final class Injector {
-    private static const _map: Dictionary = new Dictionary
     private static var _scopes: Array = []
-    private static var _modules: Array = []
     private static var _currentScope: IModule
 
-    public static function initialize(module: IModule): IModule {
-      module.initialize()
-      _modules.splice(0, 0, module)
-      return module
-    }
-    
     module_internal static function pushScope(module: IModule): void {
       _currentScope = module
       _scopes.splice(0, 0, module)
@@ -48,55 +40,6 @@ package flashx.funk.ioc {
 
     module_internal static function get currentScope(): IModule {
       return _currentScope
-    }
-
-    module_internal static function scopeOf(klass: Class): IModule {
-      var result: IModule = null
-      var module: IModule = null
-      var modules: Array = _modules.concat()
-
-      while(modules.length > 0) {
-        module = IModule(modules[0])
-
-        if(module.binds(klass)) {
-          if(null != result) {
-            throw new BindingError("More than one module binds "+klass+".")
-          }
-          result = IModule(modules[0])
-        }
-
-        modules.shift()
-      }
-
-      if(null == result) {
-        throw new BindingError("No binding for "+klass+" could be fond.")
-      }
-      
-      return result
-    }
-
-    module_internal static function moduleOf(klass: Class): IModule {
-      const possibleResult: IModule = _map[klass]
-
-      if(null != possibleResult) {
-        return possibleResult
-      }
-
-      var module: IModule = null
-      var modules: Array = _modules.concat()
-
-      while(modules.length > 0) {
-        module = IModule(modules[0])
-
-        if(module is klass) {
-          _map[klass] = module
-          return module
-        }
-
-        modules.shift()
-      }
-
-      throw new BindingError("No module for "+klass+" could be found.")
     }
 
     [Abstract] public function Injector() { isAbstract() }
