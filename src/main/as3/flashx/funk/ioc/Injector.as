@@ -26,20 +26,17 @@ package flashx.funk.ioc {
 
   public final class Injector {
     private static var _scopes: Array = []
-    private static var _currentScope: IModule
 
     module_internal static function pushScope(module: IModule): void {
-      _currentScope = module
       _scopes.splice(0, 0, module)
     }
 
     module_internal static function popScope(): void {
       _scopes.shift()
-      _currentScope = _scopes.length == 0 ? IModule(_scopes[0]) : null
     }
 
     module_internal static function get currentScope(): IModule {
-      return _currentScope
+      return _scopes[0]
     }
 
     [Abstract] public function Injector() { isAbstract() }
