@@ -24,7 +24,7 @@ package flashx.funk.ioc {
       throw new ArgumentError("Given type must not be null.")
     }
 
-    const currentScope: IModule = Injector.module_internal::currentScope
+    const currentScope: IModule = AbstractModule.module_internal::currentScope
 
     return currentScope.getInstance(klass)
   }

@@ -24,7 +24,13 @@ package flashx.funk.ioc {
   import flashx.funk.ioc.error.BindingError
 
   public class AbstractModule implements IModule {
+    private static const _scopes: Array = []
     private const _map: Dictionary = new Dictionary
+
+    module_internal static function get currentScope(): IModule
+    {
+        return _scopes[_scopes.length - 1];
+    }
 
     public function AbstractModule() {
     }
@@ -45,10 +51,10 @@ package flashx.funk.ioc {
       const binding: Binding = _map[klass]
       
       try {
-        Injector.module_internal::pushScope(this)
+        _scopes.push(this);
         return (null == binding) ? new klass : binding.getInstance()
       } finally {
-        Injector.module_internal::popScope()
+         _scopes.pop();
       }
     }
 
