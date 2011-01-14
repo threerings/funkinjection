@@ -52,7 +52,6 @@ public class AbstractModule implements IModule {
         var toInst :Instantiator = _map[toKlass];
         if (toInst == null) {
             toInst = new Instantiator(this, toKlass);
-            _map[toKlass] = toInst;
         }
         if (fromInst != null) {
             if (fromInst._singleton) {
@@ -64,9 +63,15 @@ public class AbstractModule implements IModule {
             if (fromInst._evaluated) {
                 toInst.setInstance(fromInst._value);
             }
+            for each (var from :Class in fromInst._for) {
+                toInst._for.push(from);
+            }
+        } else {
+            toInst._for.push(fromKlass);
         }
-        toInst._for.push(fromKlass);
-        _map[fromKlass] = toInst;
+        for each (var to :Class in toInst._for) {
+            _map[to] = toInst;
+        }
     }
 
     public function getInstance(klass: Class): *
