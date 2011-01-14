@@ -35,6 +35,7 @@ import flashx.funk.ioc.error.BindingError
         log.info("Starting tests");
         run("basic", basicTest);
         run("transitive", transitiveTest);
+        run("alias", aliasTest);
 
         log.info("Tests finished!");
         trace("\n");
@@ -84,6 +85,16 @@ import flashx.funk.ioc.error.BindingError
         assert(module.getInstance(IntHolder) is SubIntHolder);
         assertEquals(7, module.getInstance(IntHolder).val);
         assertEquals(7, module.getInstance(SubIntHolder).val);
+    }
+
+    public function aliasTest () :void
+    {
+        var module :IModule = new AliasModule();
+        assertNotEquals(module.getInstance(IntHolder), module.getInstance(IntHolder));
+        assert(module.getInstance(IntHolder).val < module.getInstance(IntHolder).val);
+        assert(module.getInstance(IntHolder) is SubSubIntHolder);
+        assert(module.getInstance(SubIntHolder) is SubSubIntHolder);
+        assert(module.getInstance(SubSubIntHolder) is SubSubIntHolder);
     }
 
     private static const log :Log = Log.getLog(TestIOC);

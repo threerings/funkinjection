@@ -58,7 +58,12 @@ public class AbstractModule implements IModule {
             if (fromInst._singleton) {
                 toInst.asSingleton();
             }
-            // TODO - combine
+            if (fromInst._provider != null) {
+                toInst.setProvider(fromInst._provider);
+            }
+            if (fromInst._evaluated) {
+                toInst.setInstance(fromInst._value);
+            }
         }
         toInst._for.push(fromKlass);
         _map[fromKlass] = toInst;
