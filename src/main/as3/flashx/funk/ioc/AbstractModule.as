@@ -19,47 +19,65 @@
  */
 
 package flashx.funk.ioc {
-  import flash.utils.Dictionary
+import flash.utils.Dictionary
 
-  import flashx.funk.ioc.error.BindingError
+import flashx.funk.ioc.error.BindingError
 
-  public class AbstractModule implements IModule {
-    private static const _scopes: Array = []
-    private const _map: Dictionary = new Dictionary
+public class AbstractModule implements IModule {
+    private static const _scopes: Array = [];
+    internal const _map: Dictionary = new Dictionary;
 
     module_internal static function get currentScope(): IModule
     {
         return _scopes[_scopes.length - 1];
     }
 
-    public function AbstractModule() {
+    protected function bind (klass: Class): Binding
+    {
+        return new Binding(klass, this);
+    }
+
+    internal function getInstantiator (klass :Class) :Instantiator
+    {
+        var inst :Instantiator = _map[klass];
+        if (inst == null) {
+            return new Instantiator(this, klass);
+        }
+        return inst;
     }
     
-    protected final function bind(klass: Class): Binding {
-      if(null != _map[klass]) {
-        throw new BindingError(klass+" is already bound.")
-      }
-      
-      const binding: Binding = new Binding(this, klass)
-
-      _map[klass] = binding
-
-      return binding
+    internal function alias (fromKlass :Class, toKlass :Class) :void
+    {
+        var fromInst :Instantiator = _map[fromKlass];
+        var toInst :Instantiator = _map[toKlass];
+        if (toInst == null) {
+            toInst = new Instantiator(this, toKlass);
+            _map[toKlass] = toInst;
+        }
+        if (fromInst != null) {
+            if (fromInst._singleton) {
+                toInst.asSingleton();
+            }
+            // TODO - combine
+        }
+        toInst._for.push(fromKlass);
+        _map[fromKlass] = toInst;
     }
 
-    public final function getInstance(klass: Class): * {
-      const binding: Binding = _map[klass]
-      
-      try {
-        _scopes.push(this);
-        return (null == binding) ? new klass : binding.getInstance()
-      } finally {
-         _scopes.pop();
-      }
+    public function getInstance(klass: Class): *
+    {
+        const instantiator: Instantiator = _map[klass];
+
+        try {
+            _scopes.push(this);
+            return (null == instantiator) ? new klass : instantiator.getInstance();
+        } finally {
+            _scopes.pop();
+        }
     }
 
     public function binds(klass: Class): Boolean {
-      return _map[klass] != null
+        return _map[klass] != null;
     }
-  }
+}
 }

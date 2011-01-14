@@ -2,20 +2,29 @@
 <project name="funkinjection" default="swc" basedir="." xmlns:artifact="urn:maven-artifact-ant">
   <property name="asrc.dir" location="src/main/as3"/>
   <property name="testasrc.dir" location="src/test/as3"/>
+  <property name="as.dependencies" location="dist/as-dependencies.xml"/>
   <property name="lib" location="dist/funkinjection.swc"/>
   <property name="testswf" location="dist/test.swf"/>
 
   <!-- bring in our standard build support -->
-  <property name="ooo-build.vers" value="1.4"/>
+  <property name="ooo-build.vers" value="1.11"/>
   <ant antfile="bootstrap.xml"/>
   <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
 
-  <target name="swc" depends="-init-contrib">
-    <compc4 libpath="" dest="${lib}" srcdir="${asrc.dir}"/>
+  <target name="mavendeps" depends="-init-contrib">
+    <artifact:dependencies filesetId="aslibs.fileset"
+      cacheDependencyRefs="true" dependencyRefsBuildFile="${as.dependencies}">
+      <pom file="pom.xml"/>
+    </artifact:dependencies>
+    <pathconvert pathsep="," property="aslib.path" refid="aslibs.fileset"/>
+  </target>
+
+  <target name="swc" depends="mavendeps">
+    <compc4 libpath="${aslib.path}" dest="${lib}" srcdir="${asrc.dir}"/>
   </target>
 
   <target name="test" depends="swc">
-    <mxmlc4 libpath="${lib}" dest="${testswf}" srcdir="${testasrc.dir}"
+    <mxmlc4 libpath="${lib},${aslib.path}" dest="${testswf}" srcdir="${testasrc.dir}"
       main="flashx/funk/ioc/TestIOC.as"/>
   </target>
 </project>

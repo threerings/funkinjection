@@ -19,6 +19,8 @@
  */
 
 package flashx.funk.ioc {
+import com.threerings.util.Log;
+import flash.events.Event;
   import flash.display.Sprite
 
 import flashx.funk.test.assert;
@@ -28,7 +30,29 @@ import flashx.funk.ioc.error.BindingError
 
   [SWF(width='50', height='50')]
   public final class TestIOC extends Sprite{
-    public function TestIOC() {
+    public function TestIOC()
+    {
+        log.info("Starting tests");
+        run("basic", basicTest);
+        run("transitive", transitiveSingletonTest);
+
+        log.info("Tests finished!");
+        trace("\n");
+    }
+
+    protected function run (name :String, test :Function) :void
+    {
+        SingletonInstance.numInstances = 0;
+        try {
+            test();
+            log.info("Passed", "test", name);
+        } catch (e :Error) {
+            log.warning("Failed", "test", name, e);
+        }
+    }
+
+    public function basicTest () :void
+    {
       const module: IModule = new MockModule
       const mockObject: MockObject = module.getInstance(MockObject)
 
@@ -47,5 +71,24 @@ import flashx.funk.ioc.error.BindingError
       assertNotEquals(mockObject.byProvider, mockObject2.byProvider)
       assertNotEquals(mockObject.byObject, mockObject2.byObject)
     }
+
+    public function transitiveSingletonTest () :void
+    {
+        var module :IModule = new SingletonModule();
+        assert(module.getInstance(SingletonInstance) is SubSingletonInstance);
+        assert(module.getInstance(SingletonInstance) is SubSingletonInstance);
+        assertEquals(1, SingletonInstance.numInstances);
+
+        assert(module.getInstance(SubSingletonInstance) is SubSingletonInstance);
+        assertEquals(1, SingletonInstance.numInstances);
+
+        assertEquals(module.getInstance(SingletonInstance),
+            module.getInstance(SubSingletonInstance));
+        assertEquals(1, SingletonInstance.numInstances);
+    }
+
+    private static const log :Log = Log.getLog(TestIOC);
   }
 }
+
+

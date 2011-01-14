@@ -19,71 +19,44 @@
  */
 
 package flashx.funk.ioc {
-  import flashx.funk.error.IllegalByDefinitionError
+import flashx.funk.error.IllegalByDefinitionError;
 
-  internal final class Binding implements IScope {
-    private var _module: AbstractModule
-    private var _bind: Class
-    private var _to: Class
-    private var _toInstance: *
-    private var _toProvider: Class
-    private var _bindingClass: int
-    private var _singletonScope: Boolean = false
-    private var _evaluated: Boolean = false
-    private var _value: *
+internal final class Binding implements IScope {
+    private var _mod :AbstractModule;
+    private var _for :Class;
 
-    public function Binding(module: AbstractModule, bind: Class) {
-      _module = module
-      _bind = bind
+    public function Binding (klass :Class, mod :AbstractModule)
+    {
+        _for = klass;
+        _mod = mod;
     }
 
-    public function to(klass: Class): IScope {
-      _to = klass
-      _bindingClass = 0
-      return this
+    public function to (klass: Class) :IScope
+    {
+        _mod.alias(_for, klass);
+        return this;
     }
 
-    public function toInstance(instance: *): IScope {
-      _toInstance = instance
-      _bindingClass = 1
-      return this
+    public function toInstance(instance: *) :IScope
+    {
+        instantiator.setInstance(instance);
+        return this;
     }
 
-    public function toProvider(provider: Class): IScope {
-      _toProvider = provider
-      _bindingClass = 2
-      return this
+    public function toProvider(provider: Class) :IScope
+    {
+        instantiator.setProvider(provider);
+        return this;
     }
 
-    internal function getInstance(): * {
-      if(_singletonScope) {
-        if(_evaluated) {
-          return _value
-        }
-
-        _value = solve()
-        _evaluated = true
-
-        return _value
-      } else {
-        return solve()
-      }
+    public function asSingleton(): void
+    {
+        instantiator.asSingleton();
     }
 
-    private function solve(): * {
-      if(0 == _bindingClass) {
-        return (null == _to) ? new _bind : _module.getInstance(_to)
-      } else if(1 == _bindingClass) {
-        return _toInstance
-      } else if(2 == _bindingClass) {
-        return IProvider(_module.getInstance(_toProvider)).get()
-      } else {
-        throw new IllegalByDefinitionError()
-      }
+    private function get instantiator () :Instantiator
+    {
+        return _mod.getInstantiator(_for);
     }
-
-    public function asSingleton(): void {
-      _singletonScope = true
-    }
-  }
+}
 }

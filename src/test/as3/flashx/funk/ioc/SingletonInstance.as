@@ -19,7 +19,7 @@
  */
 
 package flashx.funk.ioc {
-  internal final class SingletonInstance {
+  internal class SingletonInstance {
     public static var numInstances: int = 0
     
     public function SingletonInstance() {
