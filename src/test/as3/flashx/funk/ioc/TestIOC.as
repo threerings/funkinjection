@@ -34,7 +34,7 @@ import flashx.funk.ioc.error.BindingError
     {
         log.info("Starting tests");
         run("basic", basicTest);
-        run("transitive", transitiveSingletonTest);
+        run("transitive", transitiveTest);
 
         log.info("Tests finished!");
         trace("\n");
@@ -72,19 +72,18 @@ import flashx.funk.ioc.error.BindingError
       assertNotEquals(mockObject.byObject, mockObject2.byObject)
     }
 
-    public function transitiveSingletonTest () :void
+    public function transitiveTest () :void
     {
         var module :IModule = new SingletonModule();
         assert(module.getInstance(SingletonInstance) is SubSingletonInstance);
-        assert(module.getInstance(SingletonInstance) is SubSingletonInstance);
-        assertEquals(1, SingletonInstance.numInstances);
-
-        assert(module.getInstance(SubSingletonInstance) is SubSingletonInstance);
-        assertEquals(1, SingletonInstance.numInstances);
-
         assertEquals(module.getInstance(SingletonInstance),
             module.getInstance(SubSingletonInstance));
         assertEquals(1, SingletonInstance.numInstances);
+
+        assertEquals(0, new IntHolder().val);
+        assert(module.getInstance(IntHolder) is SubIntHolder);
+        assertEquals(7, module.getInstance(IntHolder).val);
+        assertEquals(7, module.getInstance(SubIntHolder).val);
     }
 
     private static const log :Log = Log.getLog(TestIOC);
