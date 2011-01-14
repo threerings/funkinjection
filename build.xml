@@ -2,21 +2,17 @@
 <project name="funkinjection" default="swc" basedir="." xmlns:artifact="urn:maven-artifact-ant">
   <property name="asrc.dir" location="src/main/as3"/>
   <property name="testasrc.dir" location="src/test/as3"/>
-  <property name="as.dependencies" location="dist/as-dependencies.xml"/>
-  <property name="lib" location="dist/funkinjection.swc"/>
-  <property name="testswf" location="dist/test.swf"/>
+  <property name="deploy.dir" location="dist"/>
+  <property name="lib" location="${deploy.dir}/funkinjection.swc"/>
+  <property name="testswf" location="${deploy.dir}/test.swf"/>
 
   <!-- bring in our standard build support -->
-  <property name="ooo-build.vers" value="1.11"/>
+  <property name="ooo-build.vers" value="1.13"/>
   <ant antfile="bootstrap.xml"/>
   <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
 
   <target name="mavendeps" depends="-init-contrib">
-    <artifact:dependencies filesetId="aslibs.fileset"
-      cacheDependencyRefs="true" dependencyRefsBuildFile="${as.dependencies}">
-      <pom file="pom.xml"/>
-    </artifact:dependencies>
-    <pathconvert pathsep="," property="aslib.path" refid="aslibs.fileset"/>
+    <mavendep pathprop="aslib.path"/>
   </target>
 
   <target name="swc" depends="mavendeps">
