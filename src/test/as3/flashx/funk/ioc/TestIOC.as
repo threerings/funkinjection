@@ -36,6 +36,7 @@ import flashx.funk.ioc.error.BindingError
         run("basic", basicTest);
         run("transitive", transitiveTest);
         run("alias", aliasTest);
+        run("order", orderTest);
 
         log.info("Tests finished!");
         trace("\n");
@@ -95,6 +96,14 @@ import flashx.funk.ioc.error.BindingError
         assert(module.getInstance(IntHolder) is SubSubIntHolder);
         assert(module.getInstance(SubIntHolder) is SubSubIntHolder);
         assert(module.getInstance(SubSubIntHolder) is SubSubIntHolder);
+    }
+
+    public function orderTest () :void
+    {
+        var module :IModule = new OrderingModule();
+        var order :OrderObject = module.getInstance(OrderObject);
+        assert(order.beforeConstructor.val < order.afterConstructor.val);
+        assert(order.afterConstructor.val < order.inConstructor.val);
     }
 
     private static const log :Log = Log.getLog(TestIOC);
