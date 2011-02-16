@@ -36,6 +36,7 @@ public final class TestIOC extends Sprite{
         run("transitive", transitiveTest);
         run("alias", aliasTest);
         run("order", orderTest);
+        run("chain", chainTest);
 
         trace("Tests finished!\n");
     }
@@ -103,6 +104,20 @@ public final class TestIOC extends Sprite{
         var order :OrderObject = module.getInstance(OrderObject);
         assert(order.beforeConstructor.val < order.afterConstructor.val);
         assert(order.afterConstructor.val < order.inConstructor.val);
+    }
+
+    public function chainTest () :void
+    {
+        var module :IModule = new ChainModule(new OverrideMockModule(), new MockModule());
+        const mockObject :MockObject = module.getInstance(MockObject);
+
+        assertEquals("From Override", mockObject.byInstance);
+        assert(mockObject.byProvider is ProvidedObject)
+        assert(mockObject.byObject is AnotherObject)
+        assertEquals(1, SingletonInstance.numInstances)
+
+        // Check that non-bound things can be injected by ChainModule
+        assert(module.getInstance(IntHolder) != null);
     }
 }
 }
