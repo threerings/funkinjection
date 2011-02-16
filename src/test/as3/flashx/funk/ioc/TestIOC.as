@@ -19,9 +19,8 @@
  */
 
 package flashx.funk.ioc {
-import com.threerings.util.Log;
 import flash.events.Event;
-  import flash.display.Sprite
+import flash.display.Sprite
 
 import flashx.funk.test.assert;
 import flashx.funk.test.assertEquals;
@@ -32,14 +31,13 @@ import flashx.funk.ioc.error.BindingError
   public final class TestIOC extends Sprite{
     public function TestIOC()
     {
-        log.info("Starting tests");
+        trace("Starting tests");
         run("basic", basicTest);
         run("transitive", transitiveTest);
         run("alias", aliasTest);
         run("order", orderTest);
 
-        log.info("Tests finished!");
-        trace("\n");
+        trace("Tests finished!\n");
     }
 
     protected function run (name :String, test :Function) :void
@@ -47,9 +45,10 @@ import flashx.funk.ioc.error.BindingError
         SingletonInstance.numInstances = 0;
         try {
             test();
-            log.info("Passed", "test", name);
+            trace("Passed " + name);
         } catch (e :Error) {
-            log.warning("Failed", "test", name, e);
+            trace("Failed " + name);
+            trace(e.getStackTrace());
         }
     }
 
@@ -69,7 +68,7 @@ import flashx.funk.ioc.error.BindingError
       assert(mockObject2.byProvider is ProvidedObject)
       assert(mockObject2.byObject is AnotherObject)
       assertEquals(1, SingletonInstance.numInstances)
-      
+
       assertNotEquals(mockObject.byProvider, mockObject2.byProvider)
       assertNotEquals(mockObject.byObject, mockObject2.byObject)
     }
@@ -105,8 +104,6 @@ import flashx.funk.ioc.error.BindingError
         assert(order.beforeConstructor.val < order.afterConstructor.val);
         assert(order.afterConstructor.val < order.inConstructor.val);
     }
-
-    private static const log :Log = Log.getLog(TestIOC);
   }
 }
 

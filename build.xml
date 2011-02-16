@@ -7,20 +7,20 @@
   <property name="testswf" location="${deploy.dir}/test.swf"/>
 
   <!-- bring in our standard build support -->
-  <property name="ooo-build.vers" value="1.13"/>
+  <property name="ooo-build.vers" value="1.28"/>
   <ant antfile="bootstrap.xml"/>
   <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
 
   <target name="mavendeps" depends="-init-contrib">
-    <mavendep pathprop="aslib.path"/>
+    <mavendep pom="pom.xml" pathprop="aslib.path"/>
   </target>
 
   <target name="swc" depends="mavendeps">
-    <compc4 libpath="${aslib.path}" dest="${lib}" srcdir="${asrc.dir}"/>
+    <compc4 dest="${lib}" srcdir="${asrc.dir}"/>
   </target>
 
   <target name="test" depends="swc">
-    <mxmlc4 libpath="${lib},${aslib.path}" dest="${testswf}" srcdir="${testasrc.dir}"
+    <mxmlc4 libpath="${lib}" dest="${testswf}" srcdir="${testasrc.dir}" static-lrsl="true"
       main="flashx/funk/ioc/TestIOC.as"/>
   </target>
 </project>
