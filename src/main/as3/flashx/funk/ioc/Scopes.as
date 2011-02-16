@@ -23,7 +23,7 @@ package flashx.funk.ioc {
 public class Scopes
 {
     // return the current scope
-    internal static function get currentScope () :IModule
+    internal static function get currentScope () :Module
     {
         if (_scopes.length == 0) {
             return null;
@@ -32,7 +32,7 @@ public class Scopes
     }
 
     // extend the scope with the given module and call the given function with the given klass
-    internal static function pushScopeAndCreate (mod :IModule, klass :Class, create :Function) :*
+    internal static function pushScopeAndCreate (mod :Module, klass :Class, create :Function) :*
     {
         try {
             _scopes.push(mod);

@@ -21,26 +21,26 @@
 package flashx.funk.ioc {
 import flashx.funk.error.IllegalByDefinitionError;
 
-internal final class Binding implements IScope {
+internal final class Binding implements Scope {
     public function Binding (klass :Class, mod :AbstractModule)
     {
         _for = klass;
         _mod = mod;
     }
 
-    public function to (klass: Class) :IScope
+    public function to (klass: Class) :Scope
     {
         _mod.alias(_for, klass);
         return this;
     }
 
-    public function toInstance(instance: *) :IScope
+    public function toInstance(instance: *) :Scope
     {
         instantiator.setInstance(instance);
         return this;
     }
 
-    public function toProvider(provider: Class) :IScope
+    public function toProvider(provider: Class) :Scope
     {
         instantiator.setProvider(provider);
         return this;

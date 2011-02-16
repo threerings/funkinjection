@@ -55,7 +55,7 @@ public final class TestIOC extends Sprite{
 
     public function basicTest () :void
     {
-      const module: IModule = new MockModule
+      const module: Module = new MockModule
       const mockObject: MockObject = module.getInstance(MockObject)
 
       assertEquals("Test", mockObject.byInstance)
@@ -76,7 +76,7 @@ public final class TestIOC extends Sprite{
 
     public function transitiveTest () :void
     {
-        var module :IModule = new SingletonModule();
+        var module :Module = new SingletonModule();
         assert(module.getInstance(SingletonInstance) is SubSingletonInstance);
         assertEquals(module.getInstance(SingletonInstance),
             module.getInstance(SubSingletonInstance));
@@ -90,7 +90,7 @@ public final class TestIOC extends Sprite{
 
     public function aliasTest () :void
     {
-        var module :IModule = new AliasModule();
+        var module :Module = new AliasModule();
         assertNotEquals(module.getInstance(IntHolder), module.getInstance(IntHolder));
         assert(module.getInstance(IntHolder).val < module.getInstance(IntHolder).val);
         assert(module.getInstance(IntHolder) is SubSubIntHolder);
@@ -100,7 +100,7 @@ public final class TestIOC extends Sprite{
 
     public function orderTest () :void
     {
-        var module :IModule = new OrderingModule();
+        var module :Module = new OrderingModule();
         var order :OrderObject = module.getInstance(OrderObject);
         assert(order.beforeConstructor.val < order.afterConstructor.val);
         assert(order.afterConstructor.val < order.inConstructor.val);
@@ -108,7 +108,7 @@ public final class TestIOC extends Sprite{
 
     public function chainTest () :void
     {
-        var module :IModule = new ChainModule(new OverrideMockModule(), new MockModule());
+        var module :Module = new ChainModule(new OverrideMockModule(), new MockModule());
         const mockObject :MockObject = module.getInstance(MockObject);
 
         assertEquals("From Override", mockObject.byInstance);

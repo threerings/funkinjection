@@ -44,7 +44,7 @@ internal class Instantiator {
 
     private function solve(): * {
         if (_provider != null) {
-            return IProvider(_module.getInstance(_provider)).get();
+            return Provider(_module.getInstance(_provider)).get();
         } else {
             return new _of;
         }

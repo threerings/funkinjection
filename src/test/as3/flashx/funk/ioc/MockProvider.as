@@ -21,7 +21,7 @@
 package flashx.funk.ioc {
   import flashx.funk.test.assert;
 
-internal final class MockProvider implements IProvider, IMockProvider {
+internal final class MockProvider implements Provider, IMockProvider {
     private const _injectedSingleton: SingletonInstance = inject(SingletonInstance)
 
     public function get(): *

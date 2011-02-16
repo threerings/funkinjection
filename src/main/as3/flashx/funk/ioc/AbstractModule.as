@@ -21,7 +21,7 @@
 package flashx.funk.ioc {
 import flash.utils.Dictionary
 
-public class AbstractModule implements IModule
+public class AbstractModule implements Module
 {
     public function binds(klass: Class): Boolean
     {

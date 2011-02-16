@@ -19,7 +19,7 @@
  */
 
 package flashx.funk.ioc {
-internal interface IScope {
-    function asSingleton(): void
+public interface Provider {
+    function get(): *
 }
 }

@@ -19,7 +19,7 @@
  */
 
 package flashx.funk.ioc {
-public interface IProvider {
-    function get(): *
+internal interface Scope {
+    function asSingleton(): void
 }
 }

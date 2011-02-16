@@ -1,5 +1,5 @@
 package flashx.funk.ioc {
-public class IntHolderProvider implements IProvider {
+public class IntHolderProvider implements Provider {
     private static var created :int;
     public function get () :*
     {
