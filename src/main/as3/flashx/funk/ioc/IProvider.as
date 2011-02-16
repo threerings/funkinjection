@@ -19,7 +19,7 @@
  */
 
 package flashx.funk.ioc {
-  public interface IProvider {
+public interface IProvider {
     function get(): *
-  }
+}
 }

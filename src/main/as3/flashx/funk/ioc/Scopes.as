@@ -22,8 +22,6 @@ package flashx.funk.ioc {
 
 public class Scopes
 {
-    private static const _scopes: Array = [];
-
     // return the current scope
     internal static function get currentScope () :IModule
     {
@@ -44,5 +42,7 @@ public class Scopes
             _scopes.pop();
         }
     }
+
+    private static const _scopes: Array = [];
 }
 }

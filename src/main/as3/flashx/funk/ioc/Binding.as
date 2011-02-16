@@ -22,9 +22,6 @@ package flashx.funk.ioc {
 import flashx.funk.error.IllegalByDefinitionError;
 
 internal final class Binding implements IScope {
-    private var _mod :AbstractModule;
-    private var _for :Class;
-
     public function Binding (klass :Class, mod :AbstractModule)
     {
         _for = klass;
@@ -58,5 +55,8 @@ internal final class Binding implements IScope {
     {
         return _mod.getInstantiator(_for);
     }
+
+    private var _mod :AbstractModule;
+    private var _for :Class;
 }
 }

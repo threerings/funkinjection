@@ -4,8 +4,7 @@
 package flashx.funk.ioc {
 
 /**
- * An abstract module that searches through a list of modules given on construction for
- * its bindings.
+ * Searches through a list of modules given on construction for its bindings.
  */
 public class ChainModule implements IModule
 {

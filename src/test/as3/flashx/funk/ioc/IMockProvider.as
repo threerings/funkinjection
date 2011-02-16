@@ -19,6 +19,6 @@
  */
 
 package flashx.funk.ioc {
-  internal interface IMockProvider {
-  }
+internal interface IMockProvider {
+}
 }

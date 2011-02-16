@@ -27,8 +27,8 @@ import flashx.funk.test.assertEquals;
 import flashx.funk.test.assertNotEquals;
 import flashx.funk.ioc.error.BindingError
 
-  [SWF(width='50', height='50')]
-  public final class TestIOC extends Sprite{
+[SWF(width='50', height='50')]
+public final class TestIOC extends Sprite{
     public function TestIOC()
     {
         trace("Starting tests");
@@ -104,7 +104,7 @@ import flashx.funk.ioc.error.BindingError
         assert(order.beforeConstructor.val < order.afterConstructor.val);
         assert(order.afterConstructor.val < order.inConstructor.val);
     }
-  }
+}
 }
 
 

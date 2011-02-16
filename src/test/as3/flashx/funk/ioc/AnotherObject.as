@@ -19,8 +19,8 @@
  */
 
 package flashx.funk.ioc {
-  internal final class AnotherObject implements IAnotherObject {
+internal final class AnotherObject implements IAnotherObject {
     public function AnotherObject() {
     }
-  }
+}
 }

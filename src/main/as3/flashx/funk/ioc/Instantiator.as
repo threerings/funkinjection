@@ -1,13 +1,5 @@
 package flashx.funk.ioc {
 internal class Instantiator {
-    internal var _module :AbstractModule;
-    internal var _for :Array;
-    internal var _of: Class;
-    internal var _provider: Class;
-    internal var _singleton: Boolean;
-    internal var _evaluated: Boolean;
-    internal var _value: *;
-
     public function Instantiator (module :AbstractModule, klass :Class)
     {
         _module = module;
@@ -57,5 +49,13 @@ internal class Instantiator {
             return new _of;
         }
     }
+
+    internal var _module :AbstractModule;
+    internal var _for :Array;
+    internal var _of: Class;
+    internal var _provider: Class;
+    internal var _singleton: Boolean;
+    internal var _evaluated: Boolean;
+    internal var _value: *;
 }
 }

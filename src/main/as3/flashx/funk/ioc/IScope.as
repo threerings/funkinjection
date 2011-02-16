@@ -19,7 +19,7 @@
  */
 
 package flashx.funk.ioc {
-  internal interface IScope {
+internal interface IScope {
     function asSingleton(): void
-  }
+}
 }

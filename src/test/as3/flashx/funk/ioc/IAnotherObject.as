@@ -19,6 +19,6 @@
  */
 
 package flashx.funk.ioc {
-  internal interface IAnotherObject {
-  }
+internal interface IAnotherObject {
+}
 }
