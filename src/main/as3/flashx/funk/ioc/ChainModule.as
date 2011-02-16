@@ -6,7 +6,8 @@ package flashx.funk.ioc {
 /**
  * Searches through a list of modules given on construction for its bindings.
  */
-public class ChainModule implements Module
+public class ChainModule extends ModuleBase
+    implements Module
 {
     public function ChainModule (... modules)
     {
@@ -18,21 +19,12 @@ public class ChainModule implements Module
         _modules = modules;
     }
 
-    public function binds (klass :Class):Boolean
+    override public function binds (klass :Class):Boolean
     {
         return findBinder(klass) != null;
     }
 
-    public function getInstance (klass: Class, pushScope :Boolean=true): *
-    {
-        if (pushScope) {
-            return Scopes.pushScopeAndCreate(this, klass, createInstance);
-        } else {
-            return createInstance(klass);
-        }
-    }
-
-    internal function createInstance (klass :Class) :*
+    override internal function createInstance (klass :Class) :*
     {
         const binder :Module = findBinder(klass);
         if (binder != null) {

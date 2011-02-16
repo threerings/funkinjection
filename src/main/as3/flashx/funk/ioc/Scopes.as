@@ -31,12 +31,24 @@ public class Scopes
         return _scopes[_scopes.length - 1];
     }
 
-    // extend the scope with the given module and call the given function with the given klass
+    // extend the scope with the given module and call the create function with the given klass
     internal static function pushScopeAndCreate (mod :Module, klass :Class, create :Function) :*
     {
         try {
             _scopes.push(mod);
             return create(klass);
+
+        } finally {
+            _scopes.pop();
+        }
+    }
+
+    // extend the scope with the given module and call the given function 
+    internal static function pushScopeAndRun (mod :Module, run :Function) :*
+    {
+        try {
+            _scopes.push(mod);
+            return run();
 
         } finally {
             _scopes.pop();

@@ -21,20 +21,12 @@
 package flashx.funk.ioc {
 import flash.utils.Dictionary
 
-public class AbstractModule implements Module
+public class BindingModule extends ModuleBase
+    implements Module
 {
-    public function binds(klass: Class): Boolean
+    override public function binds(klass: Class): Boolean
     {
         return _map[klass] != null;
-    }
-
-    public function getInstance (klass: Class, pushScope :Boolean=true): *
-    {
-        if (pushScope) {
-            return Scopes.pushScopeAndCreate(this, klass, createInstance);
-        } else {
-            return createInstance(klass);
-        }
     }
 
     protected function bind (klass: Class): Binding
@@ -79,7 +71,7 @@ public class AbstractModule implements Module
         }
     }
 
-    internal function createInstance (klass :Class) :*
+    override internal function createInstance (klass :Class) :*
     {
         const instantiator: Instantiator = _map[klass];
         return (null == instantiator) ? new klass : instantiator.getInstance();

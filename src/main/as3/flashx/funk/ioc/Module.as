@@ -23,5 +23,7 @@ public interface Module {
     function getInstance(klass: Class, pushScope :Boolean=true) :*;
 
     function binds(klass: Class) :Boolean;
+
+    function inject (run :Function) :*;
 }
 }

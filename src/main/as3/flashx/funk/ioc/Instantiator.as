@@ -1,6 +1,6 @@
 package flashx.funk.ioc {
 internal class Instantiator {
-    public function Instantiator (module :AbstractModule, klass :Class)
+    public function Instantiator (module :BindingModule, klass :Class)
     {
         _module = module;
         _for = [klass];
@@ -50,7 +50,7 @@ internal class Instantiator {
         }
     }
 
-    internal var _module :AbstractModule;
+    internal var _module :BindingModule;
     internal var _for :Array;
     internal var _of: Class;
     internal var _provider: Class;
