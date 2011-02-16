@@ -19,4 +19,9 @@
     <mxmlc4 libpath="${lib}" dest="${testswf}" srcdir="${testasrc.dir}" static-lrsl="true"
       main="flashx/funk/ioc/TestIOC.as"/>
   </target>
+
+  <target name="maven-deploy" depends="swc"
+      description="Deploys our build artifacts to a Maven repository.">
+    <mavendeploy file="${lib}" pom="pom.xml" srcdir="${asrc.dir}"/>
+  </target>
 </project>
