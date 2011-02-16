@@ -20,15 +20,29 @@
 
 package flashx.funk.ioc {
 
-public function inject (klass: Class) :*
+public class Scopes
 {
-    if (klass == null) {
-        throw new ArgumentError("Given type must not be null.");
+    private static const _scopes: Array = [];
+
+    // return the current scope
+    internal static function get currentScope () :IModule
+    {
+        if (_scopes.length == 0) {
+            return null;
+        }
+        return _scopes[_scopes.length - 1];
     }
 
-    if (Scopes.currentScope != null) {
-        return Scopes.currentScope.getInstance(klass);
+    // extend the scope with the given module and run the given function with it
+    internal static function pushScopeAndRun (mod :IModule, run :Function) :*
+    {
+        try {
+            _scopes.push(mod);
+            return run();
+
+        } finally {
+            _scopes.pop();
+        }
     }
-    throw new Error("You cannot inject() until you've done getInstance() on an IModule.");
 }
 }

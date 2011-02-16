@@ -24,13 +24,7 @@ import flash.utils.Dictionary
 import flashx.funk.ioc.error.BindingError
 
 public class AbstractModule implements IModule {
-    private static const _scopes: Array = [];
     internal const _map: Dictionary = new Dictionary;
-
-    module_internal static function get currentScope(): IModule
-    {
-        return _scopes[_scopes.length - 1];
-    }
 
     protected function bind (klass: Class): Binding
     {
@@ -74,16 +68,12 @@ public class AbstractModule implements IModule {
         }
     }
 
-    public function getInstance(klass: Class): *
+    public function getInstance (klass: Class): *
     {
-        const instantiator: Instantiator = _map[klass];
-
-        try {
-            _scopes.push(this);
+        Scopes.pushScopeAndRun(this, new function () :* {
+            const instantiator: Instantiator = _map[klass];
             return (null == instantiator) ? new klass : instantiator.getInstance();
-        } finally {
-            _scopes.pop();
-        }
+        });
     }
 
     public function binds(klass: Class): Boolean {
