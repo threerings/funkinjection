@@ -39,7 +39,7 @@ public class AbstractModule implements IModule {
         }
         return inst;
     }
-    
+
     internal function alias (fromKlass :Class, toKlass :Class) :void
     {
         var fromInst :Instantiator = _map[fromKlass];
@@ -68,12 +68,15 @@ public class AbstractModule implements IModule {
         }
     }
 
+    protected function createInstance (klass :Class) :*
+    {
+        const instantiator: Instantiator = _map[klass];
+        return (null == instantiator) ? new klass : instantiator.getInstance();
+    }
+
     public function getInstance (klass: Class): *
     {
-        Scopes.pushScopeAndRun(this, new function () :* {
-            const instantiator: Instantiator = _map[klass];
-            return (null == instantiator) ? new klass : instantiator.getInstance();
-        });
+        Scopes.pushScopeAndCreate(this, klass, createInstance);
     }
 
     public function binds(klass: Class): Boolean {
