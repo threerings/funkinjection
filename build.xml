@@ -11,11 +11,7 @@
   <ant antfile="bootstrap.xml"/>
   <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
 
-  <target name="mavendeps" depends="-init-contrib">
-    <mavendep pom="pom.xml" pathprop="aslib.path"/>
-  </target>
-
-  <target name="swc" depends="mavendeps">
+  <target name="swc" depends="-init-contrib">
     <compc4 dest="${lib}" srcdir="${asrc.dir}"/>
   </target>
 
