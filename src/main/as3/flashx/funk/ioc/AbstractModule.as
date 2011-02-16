@@ -21,10 +21,21 @@
 package flashx.funk.ioc {
 import flash.utils.Dictionary
 
-import flashx.funk.ioc.error.BindingError
+public class AbstractModule implements IModule
+{
+    public function binds(klass: Class): Boolean
+    {
+        return _map[klass] != null;
+    }
 
-public class AbstractModule implements IModule {
-    internal const _map: Dictionary = new Dictionary;
+    public function getInstance (klass: Class, pushScope :Boolean=true): *
+    {
+        if (pushScope) {
+            return Scopes.pushScopeAndCreate(this, klass, createInstance);
+        } else {
+            return createInstance(klass);
+        }
+    }
 
     protected function bind (klass: Class): Binding
     {
@@ -68,19 +79,12 @@ public class AbstractModule implements IModule {
         }
     }
 
-    protected function createInstance (klass :Class) :*
+    internal function createInstance (klass :Class) :*
     {
         const instantiator: Instantiator = _map[klass];
         return (null == instantiator) ? new klass : instantiator.getInstance();
     }
 
-    public function getInstance (klass: Class): *
-    {
-        Scopes.pushScopeAndCreate(this, klass, createInstance);
-    }
-
-    public function binds(klass: Class): Boolean {
-        return _map[klass] != null;
-    }
+    internal const _map: Dictionary = new Dictionary;
 }
 }

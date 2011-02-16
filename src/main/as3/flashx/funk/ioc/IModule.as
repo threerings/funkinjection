@@ -19,8 +19,9 @@
  */
 
 package flashx.funk.ioc {
-  public interface IModule {
-    function getInstance(klass: Class): *
-    function binds(klass: Class): Boolean
-  }
+public interface IModule {
+    function getInstance(klass: Class, pushScope :Boolean=true) :*;
+
+    function binds(klass: Class) :Boolean;
+}
 }

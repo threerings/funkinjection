@@ -12,11 +12,34 @@ public class ChainModule implements IModule
     public function ChainModule (... modules)
     {
         for (var ii :int = 0; ii < modules.length; ii ++) {
-            if (!(modules is IModule)) {
+            if (!(modules[ii] is IModule)) {
                 throw new Error("ChainModule argument is not an IModule");
             }
         }
         _modules = modules;
+    }
+
+    public function binds (klass :Class):Boolean
+    {
+        return findBinder(klass) != null;
+    }
+
+    public function getInstance (klass: Class, pushScope :Boolean=true): *
+    {
+        if (pushScope) {
+            return Scopes.pushScopeAndCreate(this, klass, createInstance);
+        } else {
+            return createInstance(klass);
+        }
+    }
+
+    internal function createInstance (klass :Class) :*
+    {
+        const binder :IModule = findBinder(klass);
+        if (binder != null) {
+            return binder.getInstance(klass, false);
+        }
+        return new klass;
     }
 
     protected function findBinder (klass :Class) :IModule
@@ -27,27 +50,6 @@ public class ChainModule implements IModule
             }
         }
         return null;
-    }
-
-    protected function createInstance (klass :Class) :*
-    {
-        const binder :IModule = findBinder(klass);
-        if (binder != null) {
-            return binder.getInstance(klass);
-        }
-        return new klass;
-    }
-
-    // from IModule
-    public function getInstance (klass :Class):*
-    {
-        Scopes.pushScopeAndCreate(this, klass, createInstance);
-    }
-
-    // from IModule
-    public function binds (klass :Class):Boolean
-    {
-        return findBinder(klass) != null;
     }
 
     protected var _modules :Array;
