@@ -3,6 +3,8 @@
 
 package flashx.funk.ioc {
 
+import flashx.funk.util.isAbstract;
+
 public class ModuleBase
     implements Module
 {
@@ -29,13 +31,12 @@ public class ModuleBase
 
     public function binds (klass: Class) :Boolean
     {
-        // MUST BE IMPLEMENTED BY SUBCLASS
-        return false;
+        return isAbstract();
     }
 
     internal function createInstance (klass :Class) :*
     {
-        // MUST BE IMPLEMENTED BY SUBCLASS
+        isAbstract();
     }
 }
 }
