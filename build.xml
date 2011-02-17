@@ -7,7 +7,7 @@
   <property name="testswf" location="${deploy.dir}/test.swf"/>
 
   <!-- bring in our standard build support -->
-  <property name="ooo-build.vers" value="1.28"/>
+  <property name="ooo-build.vers" value="1.29"/>
   <ant antfile="bootstrap.xml"/>
   <import file="${user.home}/.m2/ant-support/${ooo-build.vers}/build-support.xml"/>
 
