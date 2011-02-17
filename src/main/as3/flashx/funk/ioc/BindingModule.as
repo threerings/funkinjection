@@ -74,7 +74,13 @@ public class BindingModule extends ModuleBase
     override internal function createInstance (klass :Class) :*
     {
         const instantiator: Instantiator = _map[klass];
-        return (null == instantiator) ? new klass : instantiator.getInstance();
+        if (instantiator != null) {
+            return instantiator.getInstance();
+        } else if (klass == Module) {
+            return this;
+        } else {
+            return new klass;
+        }
     }
 
     internal const _map: Dictionary = new Dictionary;

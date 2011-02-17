@@ -62,6 +62,7 @@ public final class TestIOC extends Sprite{
       assert(mockObject.byProvider is ProvidedObject)
       assert(mockObject.byObject is AnotherObject)
       assertEquals(1, SingletonInstance.numInstances)
+      assertEquals(module, module.getInstance(Module));
 
       const mockObject2: MockObject = module.getInstance(MockObject)
 
@@ -115,6 +116,8 @@ public final class TestIOC extends Sprite{
         assert(mockObject.byProvider is ProvidedObject)
         assert(mockObject.byObject is AnotherObject)
         assertEquals(1, SingletonInstance.numInstances)
+
+        assertEquals(module, module.getInstance(Module));
 
         // Check that non-bound things can be injected by ChainModule
         assert(module.getInstance(IntHolder) != null);

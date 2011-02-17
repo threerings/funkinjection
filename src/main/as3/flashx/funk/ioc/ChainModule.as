@@ -26,6 +26,9 @@ public class ChainModule extends ModuleBase
 
     override internal function createInstance (klass :Class) :*
     {
+        if (klass == Module) {
+            return this;
+        }
         const binder :Module = findBinder(klass);
         if (binder != null) {
             return binder.getInstance(klass, false);
