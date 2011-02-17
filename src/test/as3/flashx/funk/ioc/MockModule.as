@@ -19,7 +19,7 @@
  */
 
 package flashx.funk.ioc {
-internal final class MockModule extends AbstractModule {
+internal final class MockModule extends BindingModule {
 function MockModule() {
   bind(IMockProviderObject).toProvider(IMockProvider)
   bind(IMockProvider).to(MockProvider)

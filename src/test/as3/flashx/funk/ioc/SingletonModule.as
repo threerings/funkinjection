@@ -1,6 +1,5 @@
 package flashx.funk.ioc {
-import flashx.funk.ioc.AbstractModule;
-public class SingletonModule extends AbstractModule {
+public class SingletonModule extends BindingModule {
     public function SingletonModule ()
     {
         bind(SingletonInstance).asSingleton();

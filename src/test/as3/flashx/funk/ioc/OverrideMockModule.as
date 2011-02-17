@@ -1,7 +1,6 @@
 package flashx.funk.ioc {
-import flashx.funk.ioc.AbstractModule;
 
-public class OverrideMockModule extends AbstractModule
+public class OverrideMockModule extends BindingModule
 {
     public function OverrideMockModule ()
     {

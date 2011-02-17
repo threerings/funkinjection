@@ -1,5 +1,5 @@
 package flashx.funk.ioc {
-public class AliasModule extends AbstractModule {
+public class AliasModule extends BindingModule {
     public function AliasModule ()
     {
         bind(IntHolder).toProvider(IntHolderProvider);
