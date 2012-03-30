@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>flashx</groupId>
   <artifactId>funkinjection</artifactId>
-  <version>0.4</version>
+  <version>0.5-SNAPSHOT</version>
   <packaging>swc</packaging>
   <name>funkinjection</name>
   <scm>
-    <connection>scm:hg:https://code.google.com/r/charliegroves-vectorless/</connection>
+    <connection>scm:git:git://github.com/threerings/funkinjection.git</connection>
   </scm>
 </project>
